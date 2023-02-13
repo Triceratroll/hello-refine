@@ -1,5 +1,7 @@
 import React from "react";
 
+import { MuiInferencer } from "@pankod/refine-inferencer/mui";
+import { UserCreate } from "users/Create";
 import { Refine } from "@pankod/refine-core";
 import {
   notificationProvider,
@@ -29,6 +31,15 @@ function App() {
           ReadyPage={ReadyPage}
           catchAll={<ErrorComponent />}
           routerProvider={routerProvider}
+          resources={[
+            {
+              name: "users",
+              list: MuiInferencer,
+              show: MuiInferencer,
+              create: UserCreate,
+              edit: MuiInferencer,
+            },
+          ]}
         />
       </RefineSnackbarProvider>
     </ThemeProvider>
